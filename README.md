@@ -1,6 +1,6 @@
-# Proyecto 4: AB Testing Streaming
+# Proyecto 6: AB Testing Streaming
 
-![imagen](images/header.jpg)
+![imagen](images/header.png)
 
 
 ## Planteamiento: **Nuevo recomendador para plataforma de streaming**
@@ -34,8 +34,7 @@ El proyecto está construido de la siguiente manera:
 - **images/**: Carpeta que contiene archivos de imagen generados durante la ejecución del código o de fuentes externas.
 
 - **notebooks/**: Carpeta que contiene los archivos `.ipynb` utilizados en la captura y tratamiento de los datos. Están numerados para su ejecución secuencial.
-  - `1_CreacionBaseDatos`
-  - `2_QueriesVisualizaciónAnálisis`
+  - `1_QueriesVisualizaciónAnálisis`
 
 - **sql/**: Carpeta que contiene los archivos `.sql` para la creación e inserción de la base de datos datos en DBeaver.
 
@@ -77,7 +76,7 @@ El proyecto está construido de la siguiente manera:
 
 ## Instalación
 
-1. Descarga DBeaver y crea una base de datos llamada "Facua". Puedes consultar la documentación de DBeaver [aquí](https://dbeaver.com/docs/dbeaver/).
+1. Descarga DBeaver y ejecuta los scripts que encontrarás en la carpeta `sql`. Puedes consultar la documentación de DBeaver [aquí](https://dbeaver.com/docs/dbeaver/).
 
 2. Clona el repositorio
    ```sh
@@ -105,26 +104,16 @@ El proyecto está construido de la siguiente manera:
 
 ## Estructura de la base de datos
 
-<img src="images/Diagrama_ER.png" width="300">
+<img src="images/Diagrama_ER.png" width="400">
 
-- Este gráfico muestra el diseño de una base de datos relacional con tablas.
+- Este gráfico muestra el diseño de una base de datos relacional con 13 tablas.
 
-- El diseño destaca por varias razones:
-
-1. **Normalización:** Las tablas están normalizadas, lo que reduce la redundancia y mejora la integridad de los datos. Cada tabla tiene una clave primaria única (PK) (id_historico, id_categoria, id_producto, id_supermercado) que identifica de manera única cada registro. Cuando se tienen "formas normales", los datos se dividen en tablas relacionadas que garantizan que cada dato se almacene solo una vez.
-
-2. **Relaciones claras:** Las relaciones entre las tablas están claramente definidas mediante claves foráneas, o foreign keys (FK). Esto facilita la consulta y el mantenimiento de la base de datos. Por ejemplo, la tabla "histórico" puede referenciar las categorías, productos y supermercados, sin duplicar información.
-
-3. **Escalabilidad:** Este diseño permite agregar nuevas categorías, productos y supermercados sin necesidad de modificar la estructura de la tabla "histórico". Solo se necesita insertar nuevos registros en las tablas correspondientes.
-
-4. **Consultas eficientes:** La estructura facilita la realización de consultas complejas. Por ejemplo, se puede obtener información histórica de precios y variaciones de productos específicos en supermercados específicos, utilizando las relaciones definidas.
-
-- Un diseño es eficiente y bien estructurado cuando es escalable y facilita la gestión y consulta de los datos almacenados.
+- Un diseño es eficiente y bien estructurado cuando está normalizado, es escalable y facilita la gestión y consulta de los datos almacenados.
 
 
 ## Conclusiones y Próximos Pasos
 
-- El notebook [2_QueriesVisualizaciónAnálisis](datos/notebooks/2_QueriesVisualizaciónAnálisis.ipynb), contiene explicaciones de los datos y las visualizaciones generadas durante el proyecto.
+- El notebook [QueriesVisualizaciónAnálisis](datos/notebooks/1_QueriesVisualizaciónAnálisis.ipynb), contiene explicaciones de los datos y las visualizaciones generadas durante el proyecto.
 
 
 ## Autor
