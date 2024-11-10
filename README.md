@@ -49,42 +49,43 @@ El proyecto está construido de la siguiente manera:
 - El proyecto fué elaborado con Python 3.9 y múltiples librerías de soporte:
 
     - *Librerías para el tratamiento de datos*
-- [Pandas](https://pandas.pydata.org/docs/)
-- [Numpy](https://numpy.org/doc/)
+        - [Pandas](https://pandas.pydata.org/docs/)
+        - [Numpy](https://numpy.org/doc/)
 
     - *Librerías para gestión de tiempos*
-- [Time](https://docs.python.org/3/library/time.html)
-- [tqdm](https://numpy.org/doc/)
+        - [Time](https://docs.python.org/3/library/time.html)
+        - [tqdm](https://numpy.org/doc/)
 
     - *Librerías para graficar*
-- [Plotly](https://plotly.com/python/)
-- [Seaborn](https://seaborn.pydata.org)
-- [Matplotlib](https://matplotlib.org/stable/index.html)
+        - [Plotly](https://plotly.com/python/)
+        - [Seaborn](https://seaborn.pydata.org)
+        - [Matplotlib](https://matplotlib.org/stable/index.html)
 
     - *Librería para gestionar tokens y contraseñas*
-- [DotEnv](https://pypi.org/project/python-dotenv/)
+        - [DotEnv](https://pypi.org/project/python-dotenv/)
 
     - *Librería para controlar parámetros del sistema*
-- [Sys](https://docs.python.org/3/library/sys.html)
+        - [Sys](https://docs.python.org/3/library/sys.html)
 
     - *Librería para conexión a bases de datos SQL*
-- [psycopg2](https://www.psycopg.org/docs/)
+        - [psycopg2](https://www.psycopg.org/docs/)
 
     - *Librería para la gestión de avisos*
-- [warnings](https://docs.python.org/3/library/warnings.html)
+        - [warnings](https://docs.python.org/3/library/warnings.html)
 
+- El proyecto es funcional al 10 de Noviembre de 2024.
 
 ## Instalación
 
-1. Descarga DBeaver y ejecuta los scripts que encontrarás en la carpeta `sql`. Puedes consultar la documentación de DBeaver [aquí](https://dbeaver.com/docs/dbeaver/).
+1. Descarga DBeaver, crea una nueva conexión con postgres y ejecuta los scripts que encontrarás en la carpeta `sql`, con los que se creará la base de datos que servirá de base para las consultas. Puedes consultar la documentación de DBeaver [aquí](https://dbeaver.com/docs/dbeaver/).
 
 2. Clona el repositorio
    ```sh
-   git clone https://github.com/davfranco1/Proyecto4-AnalisisFacua.git
+   git clone https://github.com/davfranco1/Proyecto6-AB-Testing-Streaming.git
    ```
 3. Instala las librerías que aparecen en el apartado anterior. Utiliza en tu notebook de Jupyter:
    ```sh
-   %pip install nombre_librería
+   pip install nombre_librería
    ```
 4. Genera un archivo para almacenar tus tokens y contraseñas, en este caso para la base de datos de DBeaver:
    Entra en la carpeta `src` y crea `.env`, que contenga el siguiente script, sin olvidar las comillas:
