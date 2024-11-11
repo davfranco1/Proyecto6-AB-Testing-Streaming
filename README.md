@@ -2,6 +2,7 @@
 
 ![imagen](images/header.png)
 
+*CONCLUSIONES PENDIENTES* 
 
 ## Planteamiento: **Nuevo recomendador para plataforma de streaming**
 
@@ -40,7 +41,7 @@ El proyecto está construido de la siguiente manera:
 
 - **src/**: Carpeta que contiene los archivos `.py`, con las funciones y variables utilizadas en los distintos notebooks.
   - `soporte_funciones.py`
-  - `soporte_variables.py`
+  - `soporte_abtesting.py`
 
 - `.gitignore`: Archivo que contiene los archivos y extensiones que no se subirán a nuestro repositorio, como los archivos .env, que contienen contraseñas.
 
