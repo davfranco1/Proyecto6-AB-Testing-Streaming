@@ -115,7 +115,7 @@ El proyecto está construido de la siguiente manera:
 
 ## Conclusiones y Próximos Pasos
 
-- El notebook [QueriesVisualizaciónAnálisis](datos/notebooks/1_QueriesVisualizaciónAnálisis.ipynb), contiene explicaciones de los datos y las visualizaciones generadas durante el proyecto.
+- El notebook [QueriesVisualizaciónAnálisis](notebooks/1_QueriesVisualizaciónAnálisis.ipynb), contiene explicaciones de los datos y las visualizaciones generadas durante el proyecto.
 
 
 ## Autor

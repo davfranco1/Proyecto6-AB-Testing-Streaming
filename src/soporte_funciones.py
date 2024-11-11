@@ -26,6 +26,26 @@ dbeaver_user = os.getenv("dbeaver_user")
 
 
 def iteraciones_normalidad(df, columna_grupo, columna_metrica, iteraciones=5, alpha=0.05):
+    """
+    Evalúa la normalidad de los datos en función de un número específico de iteraciones, utilizando pruebas de Shapiro o KS.
+    Se basa en subgrupos de una métrica específica y reporta la cantidad de veces que la distribución de cada grupo es normal o no.
+
+    Parámetros:
+    df : DataFrame
+        DataFrame con los datos de entrada.
+    columna_grupo : str
+        Columna que identifica los grupos en el DataFrame.
+    columna_metrica : str
+        Columna que contiene la métrica a evaluar para cada grupo.
+    iteraciones : int, opcional
+        Número de iteraciones para el muestreo y la evaluación de normalidad (por defecto 5).
+    alpha : float, opcional
+        Nivel de significancia para la prueba de normalidad (por defecto 0.05).
+
+    Retorna:
+    None
+    """
+
     tamanios_grupos1 = list(df[columna_grupo].value_counts())
     grupo_mas_peq = float(min(tamanios_grupos1))
     grupos = list(df[columna_grupo].unique())
@@ -62,6 +82,22 @@ def iteraciones_normalidad(df, columna_grupo, columna_metrica, iteraciones=5, al
 
 
 def histogramas_homocedasticidad(df, columna_grupo, columna_metrica):
+    """
+    Genera histogramas para evaluar visualmente la homocedasticidad de los datos, en función de una métrica específica
+    para diferentes grupos en el DataFrame.
+
+    Parámetros:
+    df : DataFrame
+        DataFrame con los datos de entrada.
+    columna_grupo : str
+        Columna que identifica los grupos en el DataFrame.
+    columna_metrica : str
+        Columna que contiene la métrica para cada grupo.
+
+    Retorna:
+    None
+    """
+
     # Obtener los tamaños de los grupos
     tamanios_grupos = df[columna_grupo].nunique()
     # Calcular el número de filas y columnas para los subplots
@@ -87,7 +123,24 @@ def histogramas_homocedasticidad(df, columna_grupo, columna_metrica):
     plt.show()
 
 
-def test_homocedasticidad(df, columna_grupos, columna_metrica, test):
+def test_homocedasticidad(df, columna_grupos, columna_metrica, test):    
+    """
+    Realiza una prueba de homocedasticidad para evaluar si las varianzas de los grupos son iguales.
+
+    Parámetros:
+    df : DataFrame
+        DataFrame con los datos de entrada.
+    columna_grupos : str
+        Columna que identifica los grupos en el DataFrame.
+    columna_metrica : str
+        Columna que contiene la métrica a evaluar para cada grupo.
+    test : str
+        Tipo de prueba a realizar ("levene" o "bartlett").
+
+    Retorna:
+    None
+    """
+        
     test = test.lower()
     unicos = df[columna_grupos].unique()
 
@@ -104,6 +157,22 @@ def test_homocedasticidad(df, columna_grupos, columna_metrica, test):
 
 
 def crear_df_grupos (df, col_grupo, col_metrica):
+    """
+    Crea variables globales que contienen los datos de una métrica específica para cada grupo en el DataFrame,
+    y devuelve una lista de los nombres de los grupos.
+
+    Parámetros:
+    df : DataFrame
+        DataFrame con los datos de entrada.
+    col_grupo : str
+        Columna que identifica los grupos en el DataFrame.
+    col_metrica : str
+        Columna que contiene la métrica a evaluar para cada grupo.
+
+    Retorna:
+    list
+        Lista de los nombres únicos de los grupos en el DataFrame.
+    """
 
     for valor in df[col_grupo].unique():
         globals()[valor.lower()] = df[df[col_grupo]==valor][col_metrica]
@@ -112,7 +181,19 @@ def crear_df_grupos (df, col_grupo, col_metrica):
 
 
 def elegir_test(valores, dependencia=False):
+    """
+    Selecciona y ejecuta la prueba estadística adecuada para comparar dos o más grupos, en función de si hay dependencia entre ellos.
 
+    Parámetros:
+    valores : list
+        Lista de nombres de los grupos a comparar.
+    dependencia : bool, opcional
+        Indica si hay dependencia entre los grupos (por defecto False).
+
+    Retorna:
+    None
+    """
+    
     if len(valores) > 2:
         print("Test Kruskal")
         _, pvalor = stats.kruskal(*[globals()[var.lower()] for var in valores])
